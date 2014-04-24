@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pulavr - Free and Private Talk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/pulavr.css">
+  
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/peer.js"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://pulavr.vintimilla.org:1338">Pulavr</a>
+    </div>
+  </nav>
+  <div class="container">
+      <!-- audio area -->
+    <div class="row">
+      <div class="col-md-4" id="">
+        <audio id="my-audio" class="local_audio" muted="true" autoplay>Sorry, your browser is not compatible.</audio>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <audio id="their-audio" class="remote_audio" autoplay></audio>
+        </div>
+      </div>
+    </div>
+
+      <!-- Steps -->
+    <div class="row">
+      <h2>Pulavr Audio Chat</h2>
+
+      <!-- Get local audio/video stream -->
+      <div class="row">
+        <div id="allow" class="col-md-6">
+          <p>Please click "Allow" on the top of the screen so we can access your microphone for calls.</p>
+          <!--<div id="step1-error">
+            <p>Failed to access the microphone. Make sure to run this demo on an http server and click allow when asked for permission by the browser.</p>
+            <a href="#" class="pure-button pure-button-error" id="step1-retry">Try again</a>
+          </div>-->
+        </div>
+      </div>
+
+      <div class="row" id="id_row">
+        <form role="form" class="form-inline">
+          <div class="form-group col-md-6">
+              <p>
+                You can choose your own ID or let us generate one for you. This ID is how other users can call you.
+              </p>
+              <p>Click "Set ID" when you are done.</p>
+            <div class="form-group col-md-6">
+              <label for="personal_id" class="sr-only">Choose an ID</label>
+              <input class="form-control col-md-4" type="text" name="personal_id" id="personal_id" placeholder="Choose an ID"/>
+              <button class="btn btn-default" id="set_id">Set ID</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Make calls to others -->
+      <div class="row">
+        <div id="your_id" class="col-md-6" style="display: none;">
+          <p>Your ID: <span id="my-id">...</span></p>
+          <p>Share this ID with others so they can call you.</p>
+          <form role="form" class="form-inline">
+            <div class="form-group col-md-6">
+              <label for="personal_id" class="sr-only">Make a Call</label>
+              <input class="form-control col-md-4" type="text" placeholder="Call user ID..." id="callto-id">
+              <button class="btn btn-primary" id="make-call">Call</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Call in progress -->
+      <div class="row">
+        <div id="in_call" class="col-md-6" style="display: none;">
+          <p>Currently in call with <span id="their-id">...</span></p>
+          <p><a href="#" class="pure-button pure-button-error" id="end-call">End call</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript" src="js/pulavr.js"></script>
+</body>
+</html>
+
